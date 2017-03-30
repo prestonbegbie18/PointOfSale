@@ -18,12 +18,19 @@ function addItem()
   res = isNaN(newItem);
   if (res == true)
   {
-    document.getElementById("warning").innerHTML = "Enter in a valid number."
+    document.getElementById("warning").innerHTML = "Enter price as a number.";
     console.log("Number is invalid");
   }
   else
   {
-    console.log("Number is valid");
+    newItem = Number(newItem);
+    runningTotal = runningTotal + newItem;
+    //console.log(runningTotal);
+    var dollars = asCurrency(runningTotal);
+    //console.log(dollars);
+    document.getElementById("subtotal").innerHTML = dollars;
+    document.getElementById("price").value = NULL; //This is the line that I had the question on.
+    setCookie("preTax", runningTotal.value, 1);
   }
 }
 
