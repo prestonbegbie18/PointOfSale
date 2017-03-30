@@ -22,7 +22,6 @@ function addItem()
   }
 }
 
-//takes a number and gives a string with the number displayed as USD currency
 function asCurrency(val)
 {
   return "$" + val.toFixed(2);
@@ -32,12 +31,8 @@ function calculateReceipt()
 {
   var receiptSubtotal = getCookie("preTax");
   receiptSubtotal = Number(receiptSubtotal);
-  //console.log(receiptSubtotal);
   var receiptTax = receiptSubtotal * 0.075;
-  //console.log(receiptTax);
   var receiptTotal = (receiptTax + receiptSubtotal);
-  //receiptTotal = asCurrency(receiptTotal);
-  //console.log(receiptTotal);
   document.getElementById("sub").innerHTML = asCurrency(receiptSubtotal);
   document.getElementById("tax").innerHTML = asCurrency(receiptTax);
   document.getElementById("tot").innerHTML = asCurrency(receiptTotal);
